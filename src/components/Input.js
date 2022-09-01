@@ -18,6 +18,8 @@ export default styled.input`
 
   background: #fff;
 
+  appearance: none;
+
   transition: border 0.2s ease-in;
 
   &:focus {
