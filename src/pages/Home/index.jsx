@@ -28,8 +28,6 @@ export default function Home() {
     });
   }, []);
 
-  console.log(contacts);
-
   return (
     <Container>
 
@@ -41,7 +39,10 @@ export default function Home() {
       </InputSearchContainer>
 
       <Header>
-        <strong>3 contatos</strong>
+        <strong>
+          {contacts.length}
+          {contacts.length === 1 ? ' contato' : ' contatos'}
+        </strong>
         <Link to="/new">Novo contato</Link>
       </Header>
 
@@ -58,40 +59,44 @@ export default function Home() {
           </button>
         </header>
 
-        <Card>
-          <div
-            className="info"
-          >
+        {contacts.map((contact) => (
+          <Card key={contact.id}>
             <div
-              className="contact-name"
+              className="info"
             >
-              <strong>Mateus Silva</strong>
-              <small>instagram</small>
+              <div
+                className="contact-name"
+              >
+                <strong>{contact.name}</strong>
+                {contact.category_name && (
+                  <small>{contact.category_name}</small>
+                )}
+              </div>
+
+              <span>{contact.email}</span>
+              <span>{contact.phone}</span>
             </div>
 
-            <span>mateus@devacademy.com.br</span>
-            <span>(41) 99999-9999</span>
-          </div>
-
-          <div
-            className="actions"
-          >
-            <Link to="/edit/123">
-              <img
-                src={edit}
-                alt="Edit"
-              />
-            </Link>
-            <button
-              type="button"
+            <div
+              className="actions"
             >
-              <img
-                src={trash}
-                alt="Delete"
-              />
-            </button>
-          </div>
+              <Link to={`/edit/${contact.id}`}>
+                <img
+                  src={edit}
+                  alt="Edit"
+                />
+              </Link>
+              <button
+                type="button"
+              >
+                <img
+                  src={trash}
+                  alt="Delete"
+                />
+              </button>
+            </div>
         </Card>
+        ))}
       </ListContainer>
     </Container>
   );
