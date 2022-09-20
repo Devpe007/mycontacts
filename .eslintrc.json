@@ -24,6 +24,9 @@
     "no-extra-semi": "off",
     "react/jsx-no-bind": "off",
     "import/no-named-as-default-member": "off",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-indent": "off",
+    "indent": "off"
   }
 }
