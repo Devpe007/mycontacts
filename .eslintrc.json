@@ -27,6 +27,7 @@
     "import/no-named-as-default": "off",
     "react/jsx-closing-tag-location": "off",
     "react/jsx-indent": "off",
-    "indent": "off"
+    "indent": "off",
+    "no-promise-executor-return": "off"
   }
 }
