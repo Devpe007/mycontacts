@@ -1,4 +1,4 @@
-import delay from "../../utils/delay";
+import delay from '../../utils/delay';
 
 class HttpClient {
   constructor(baseUrl) {

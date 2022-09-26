@@ -37,7 +37,7 @@ export default function Home() {
         const contactsList = await ContactsService.listContacts(orderBy);
 
         setContacts(contactsList);
-      } catch(error) {
+      } catch (error) {
         console.log('error', error);
       } finally {
         setIsLoading(false);
@@ -131,7 +131,7 @@ export default function Home() {
               />
             </button>
           </div>
-      </Card>
+        </Card>
       ))}
     </Container>
   );
