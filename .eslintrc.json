@@ -24,6 +24,7 @@
     "no-promise-executor-return": "off",
     "react/jsx-no-bind": "off",
     "react/jsx-filename-extension": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "prefer-const": "off"
   }
 }
