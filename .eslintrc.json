@@ -10,9 +10,9 @@
   ],
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+        "jsx": true
     },
-    "ecmaVersion": "latest",
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "plugins": [
@@ -23,6 +23,7 @@
     "no-extra-semi": "off",
     "no-promise-executor-return": "off",
     "react/jsx-no-bind": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": "off"
   }
 }
