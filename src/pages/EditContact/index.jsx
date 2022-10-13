@@ -12,6 +12,8 @@ import Loader from '../../components/Loader';
 export default function EditContact() {
   const [isLoading, setIsloading] = useState(true);
 
+  const [contactName, setContactName] = useState('');
+
   const contactFormRef = useRef(null);
 
   const { id } = useParams();
@@ -25,6 +27,7 @@ export default function EditContact() {
         contactFormRef.current.setFieldsValues(contact);
 
         setIsloading(false);
+        setContactName(contact.name);
       } catch {
         history.push('/');
 
@@ -47,7 +50,7 @@ export default function EditContact() {
       <Loader isLoading={isLoading} />
 
       <PageHeader
-        title="Editar Mateus Silva"
+        title={isLoading ? 'Carregando...' : `Editar ${contactName}`}
       />
 
       <ContactForm
