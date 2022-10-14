@@ -13,7 +13,9 @@ import {
 
 import isEmailValid from '../../utils/isEmailValid';
 import formatPhone from '../../utils/formatPhone';
+
 import useErrors from '../../hooks/useErrors';
+import useSafeAsyncState from '../../hooks/useSafeAsyncState';
 
 import CategoriesService from '../../services/CategoriesService';
 
@@ -29,9 +31,9 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
   const [phone, setPhone] = useState('');
   const [categoryId, setCategoryId] = useState('');
 
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useSafeAsyncState([]);
 
-  const [isLoadingCategories, setIsLoadingCategories] = useState(true);
+  const [isLoadingCategories, setIsLoadingCategories] = useSafeAsyncState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -71,7 +73,7 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
     };
 
     loadCategories();
-  }, []);
+  }, [setCategories, setIsLoadingCategories]);
 
   function handleNameChange(event) {
     setName(event.target.value);
