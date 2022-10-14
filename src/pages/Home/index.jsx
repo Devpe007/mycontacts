@@ -46,6 +46,9 @@ export default function Home() {
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   )), [contacts, searchTerm]);
 
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+  const [contactBeingDeleted, setContactBeingDeleted] = useState(null);
+
   const loadContacts = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -79,18 +82,33 @@ export default function Home() {
     loadContacts();
   };
 
+  function handleDeleteContact(contact) {
+    setContactBeingDeleted(contact);
+
+    setIsDeleteModalVisible(true);
+  };
+
+  function handleCloseDeleteModal() {
+    setIsDeleteModalVisible(false);
+  };
+
+  function handleConfirmDeleteContact() {
+    console.log(contactBeingDeleted.id);
+  };
+
   return (
     <Container>
       <Loader isLoading={isLoading} />
 
       <Modal
         danger
-        title="Tem certeza que deseja remover o contato `Matheus Silva`?"
+        visible={isDeleteModalVisible}
+        title={`Tem certeza que deseja remover o contato ”${contactBeingDeleted?.name}”?`}
         confirmLabel="Deletar"
-        onCancel={() => alert('Cancelou')}
-        onConfirm={() => alert('Confirmou')}
+        onCancel={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteContact}
       >
-        <h2>oi</h2>
+        <p>Esta ação não poderá ser desfeita!</p>
       </Modal>
 
       {contacts.length > 0 && (
@@ -220,6 +238,7 @@ export default function Home() {
                 </Link>
                 <button
                   type="button"
+                  onClick={() => handleDeleteContact(contact)}
                 >
                   <img
                     src={trash}
