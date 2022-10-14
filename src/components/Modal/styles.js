@@ -5,7 +5,7 @@ export const Overlay = styled.div`
   align-items: center;
   justify-content: center;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -29,7 +29,7 @@ export const Container = styled.div`
 
   background: #fff;
 
-  h1 {
+  > h1 {
     font-size: 22px;
 
     color: ${({ theme, danger }) => (
@@ -37,8 +37,8 @@ export const Container = styled.div`
   )};
   }
 
-  p {
-    margin-top: 8px;
+  .modal-body {
+    margin-top: 32px;
   }
 `;
 
@@ -50,7 +50,7 @@ export const Footer = styled.footer`
   margin-top: 32px;
 
   .cancel-button {
-    margin-right: 8px;
+    margin-right: 24px;
 
     border: none;
 
