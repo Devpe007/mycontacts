@@ -246,8 +246,8 @@ export default function Home() {
                   className="contact-name"
                 >
                   <strong>{contact.name}</strong>
-                  {contact.category_name && (
-                  <small>{contact.category_name}</small>
+                  {contact.category.name && (
+                  <small>{contact.category.name}</small>
                   )}
                 </div>
 
