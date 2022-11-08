@@ -26,6 +26,7 @@
     "react/jsx-filename-extension": "off",
     "import/prefer-default-export": "off",
     "prefer-const": "off",
-    "no-empty": ["error", { "allowEmptyCatch": true }]
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "class-methods-use-this": "off"
   }
 }
