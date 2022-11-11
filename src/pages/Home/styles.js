@@ -93,27 +93,6 @@ export const Card = styled.div`
   }
 `;
 
-export const ErrorContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  margin-top: 16px;
-
-  .details {
-    margin-left: 24px;
-
-    strong {
-      display: block;
-
-      margin-bottom: 8px;
-
-      font-size: 22px;
-
-      color: ${({ theme }) => theme.colors.danger.main};
-    }
-  }
-`;
-
 export const EmptyListContainer = styled.div`
   display: flex;
   flex-direction: column;
