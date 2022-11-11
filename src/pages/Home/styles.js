@@ -93,26 +93,6 @@ export const Card = styled.div`
   }
 `;
 
-export const EmptyListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 16px;
-
-  p {
-    margin-top: 8px;
-
-    text-align: center;
-
-    color: ${({ theme }) => theme.colors.gray[200]};
-
-    strong {
-      color: ${({ theme }) => theme.colors.primary.main};
-    }
-  }
-`;
-
 export const SearchNotFoundContainer = styled.div`
   display: flex;
   align-items: flex-start;
