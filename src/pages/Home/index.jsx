@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-nested-ternary */
 import { Link } from 'react-router-dom';
 
 import {
   Container,
-  Header,
   ListHeader,
   Card,
   ErrorContainer,
@@ -24,6 +22,7 @@ import Button from '../../components/Button';
 import Modal from '../../components/Modal';
 
 import InputSearch from './components/InputSearch';
+import Header from './components/Header';
 
 import useHome from './useHome';
 
@@ -58,25 +57,10 @@ export default function Home() {
       )}
 
       <Header
-        justifyContent={
-          (hasError
-            ? 'flex-end'
-            : (
-              contacts.length > 0
-                ? 'space-between'
-                : 'center'
-            )
-          )
-        }
-      >
-        {(!hasError && contacts.length > 0) && (
-          <strong>
-            {filteredContacts.length}
-            {filteredContacts.length === 1 ? ' contato' : ' contatos'}
-          </strong>
-        )}
-        <Link to="/new">Novo contato</Link>
-      </Header>
+        hasError={hasError}
+        qtyOfContacts={contacts.length}
+        qtyOfFilteredContacts={filteredContacts.length}
+      />
 
       {hasError && (
         <ErrorContainer>
