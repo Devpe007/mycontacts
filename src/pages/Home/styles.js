@@ -92,18 +92,3 @@ export const Card = styled.div`
     }
   }
 `;
-
-export const SearchNotFoundContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-
-  margin-top: 16px;
-
-  span {
-    margin-left: 24px;
-
-    word-break: break-word;
-
-    color: ${({ theme }) => theme.colors.gray[200]};
-  }
-`;
