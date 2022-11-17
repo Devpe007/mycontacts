@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
-import useAnimatedList from '../../../hooks/useAnimatedList';
 
 import { toastEventManager } from '../../../utils/toast';
 
+import useAnimatedList from '../../../hooks/useAnimatedList';
+
 export default function useToastContainer() {
   const {
-    items: messages,
     setItems: setMessages,
-    pendingRemovalItemsId,
     handleRemoveItem,
     handleAnimationEnd,
   } = useAnimatedList();
@@ -30,9 +29,7 @@ export default function useToastContainer() {
   }, [setMessages]);
 
   return {
-    messages,
     handleRemoveItem,
-    pendingRemovalItemsId,
     handleAnimationEnd,
   };
 };
