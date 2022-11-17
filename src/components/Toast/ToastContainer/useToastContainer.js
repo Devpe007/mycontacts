@@ -29,9 +29,19 @@ export default function useToastContainer() {
     );
   }, []);
 
+  const handleAnimationEnd = useCallback((id) => {
+    setMessages(
+      (prevState) => prevState.filter((message) => message.id !== id),
+    );
+    setPendingRemovalMessagesId(
+      (prevState) => prevState.filter((messageId) => messageId !== id),
+    );
+  }, []);
+
   return {
     messages,
     handleRemoveMessage,
     pendingRemovalMessagesId,
+    handleAnimationEnd,
   };
 };
